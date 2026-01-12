@@ -1,17 +1,14 @@
+import { getImageUrl } from "@/app/libs/api";
+import { Category } from "@/app/types";
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
-const categories = [
-    { name: "Running", imgPath: "category-running.svg" },
-    { name: "Tennis", imgPath: "category-tennis.svg" },
-    { name: "Basketball", imgPath: "category-basketball.svg" },
-    { name: "Football", imgPath: "category-football.svg" },
-    { name: "Badminton", imgPath: "category-badminton.svg" },
-    { name: "Swimming", imgPath: "category-swimming.svg" },
-];
+type TCategoryProps = {
+    categories: Category[];
+};
 
-export const CategoriesSection = () => {
+export const CategoriesSection = ({ categories }: TCategoryProps) => {
     return (
         <section id="category-section" className="container mx-auto pb-20">
             <div className="flex justify-between">
@@ -23,10 +20,10 @@ export const CategoriesSection = () => {
             </div>
             <div className="grid grid-cols-6 gap-12 mt-8">
                 {categories.map((category) => (
-                    <div key={category.name} className="flex justify-center rounded-lg bg-linear-to-r from-[#F1F1F1] to-[F7F7F7] w-full aspect-square">
+                    <div key={category._id} className="flex justify-center rounded-lg bg-linear-to-r from-[#F1F1F1] to-[F7F7F7] w-full aspect-square">
                         <div className="self-center">
                             <Image
-                                src={`/images/categories/${category.imgPath}`}
+                                src={getImageUrl(category.imageUrl)}
                                 alt={category.name}
                                 width={86}
                                 height={86}
