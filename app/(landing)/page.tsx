@@ -5,8 +5,10 @@ import { HeroSection } from "./components/home/hero";
 import { ProductsSection } from "./components/home/products";
 
 export default async function Home() {
-  const categories = await getCategories();
-  const products = await getProducts();
+  const [categories, products] = await Promise.all([
+    getCategories(),
+    getProducts(),
+  ]);
 
   return (
     <main>
