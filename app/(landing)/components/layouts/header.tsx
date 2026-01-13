@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiSearch, FiShoppingBag } from "react-icons/fi";
 import { useState } from "react";
-import { useCartStore } from "@/app/hooks/useCartStore";
+import { useCartStore } from "@/app/hooks/use-cart-store";
 import { CartPopup } from "../ui/cart-popup";
 
 export const Header = () => {

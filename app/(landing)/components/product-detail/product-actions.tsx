@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Product } from "@/app/types";
-import { useCartStore } from "@/app/hooks/useCartStore";
+import { useCartStore } from "@/app/hooks/use-cart-store";
 import { Button } from "../ui/button";
 
 type TProductActionsProps = {

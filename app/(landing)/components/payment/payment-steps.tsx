@@ -4,7 +4,7 @@
 import { FiCheckCircle } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useCartStore } from "@/app/hooks/useCartStore";
+import { useCartStore } from "@/app/hooks/use-cart-store";
 import { CardWithHeader } from "../ui/cart-with-header";
 import { FileUpload } from "../ui/file-upload";
 import { priceFormatter } from "@/app/utils/price-formatter";
