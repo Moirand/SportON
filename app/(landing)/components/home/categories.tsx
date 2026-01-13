@@ -4,11 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
-type TCategoryProps = {
+type TCategoriesProps = {
     categories: Category[];
 };
 
-export const CategoriesSection = ({ categories }: TCategoryProps) => {
+export const CategoriesSection = ({ categories }: TCategoriesProps) => {
+    console.log(categories);
+
     return (
         <section id="category-section" className="container mx-auto pb-20">
             <div className="flex justify-between">
@@ -20,19 +22,25 @@ export const CategoriesSection = ({ categories }: TCategoryProps) => {
             </div>
             <div className="grid grid-cols-6 gap-12 mt-8">
                 {categories.map((category) => (
-                    <div key={category._id} className="flex justify-center rounded-lg bg-linear-to-r from-[#F1F1F1] to-[F7F7F7] w-full aspect-square">
+                    <div
+                        className="rounded-lg bg-linear-to-r from-[#F1F1F1] to-[#F7F7F7] w-full aspect-square flex justify-center"
+                        key={category._id}
+                    >
                         <div className="self-center">
                             <Image
                                 src={getImageUrl(category.imageUrl)}
-                                alt={category.name}
                                 width={86}
-                                height={86}
+                                height="86"
+                                alt={category.name}
+                                className="mb-2.5"
                             />
-                            <div className="text-primary font-medium text-xl mt-2.5 text-center">{category.name}</div>
+                            <div className="text-primary font-medium text-xl text-center">
+                                {category.name}
+                            </div>
                         </div>
                     </div>
                 ))}
             </div>
         </section>
     );
-}
+};
